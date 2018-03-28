@@ -9,3 +9,12 @@ follow results echoed out to the 'foobar' file.
 send data with:
 
 curl -XPOST http://localhost:7890/alerts -d@./alerts1.json
+
+in prometheus alertmanager, configure it thusly:
+
+(under receivers)
+  webhook_configs:
+  - url: http://serverrunningthislousycode.yourcompany.com:7890/alerts
+
+
+No protections against someone else sending stuff to this, use iptables if you need that.
