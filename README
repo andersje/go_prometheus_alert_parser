@@ -1,0 +1,11 @@
+builds and runs on golang 1.6 or golang 1.2
+
+build with go build listen_echo.go
+run with ./listen_echo
+
+make sure you have stupid_echo as executable.
+follow results echoed out to the 'foobar' file.
+
+send data with:
+
+curl -XPOST http://localhost:7890/alerts -d@./alerts1.json
