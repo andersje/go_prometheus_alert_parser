@@ -1,6 +1,6 @@
 {
   "version": "4",
-  "groupKey": 7,
+  "groupKey": "{}:{alertname=\"dumb\", cluster=\"someclustername\"}",
   "status": "firing",
   "receiver": "receiver",
   "groupLabels": { "foo": "groupLabels" },
