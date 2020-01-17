@@ -1,0 +1,30 @@
+{
+  "version": "4",
+  "groupKey": "{}:{alertname=\"dumb\", cluster=\"someclustername\"}",
+  "status": "recovery",
+  "receiver": "receiver",
+  "groupLabels": { "foo": "groupLabels" },
+  "commonLabels": { "bar": "commonLabels" },
+  "commonAnnotations": { "baz": "commonAnnotation" },
+  "externalURL": "http://www.angelar.com",
+  "alerts": [
+    {
+      "labels": { "name": "alert0label" },
+      "annotations": { "summary": "summary 0 dude", "description": "big trouble" },
+      "startsAt": "2002-10-02T10:00:00-05:00",
+      "endsAt": "2002-10-02T10:00:00-05:00"
+    },
+    {
+      "labels": { "name": "alert1label" },
+      "annotations": { "summary": "summary 1 dude", "description": "bigger trouble" },
+      "startsAt": "2003-10-02T10:00:00-05:00",
+      "endsAt": "2003-10-02T10:00:00-05:00"
+    },
+    {
+      "labels": { "name": "alert2label" },
+      "annotations": { "summary": "summary 2 dude", "description": "biggest trouble" },
+      "startsAt": "2004-10-02T10:00:00-05:00",
+      "endsAt": "2004-10-02T10:00:00-05:00"
+    }
+  ]
+}

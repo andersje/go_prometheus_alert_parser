@@ -45,7 +45,7 @@ type(
 func main() {
   fmt.Println("About to listen on " + LISTENER)
 
-  http.HandleFunc("/alerts", postHandler)  
+  http.HandleFunc("/alerts", postHandler)
   log.Fatal(http.ListenAndServe(LISTENER,nil))
 }
 
@@ -61,6 +61,13 @@ func postHandler(w http.ResponseWriter, r *http.Request) {
     return
   }
 
+  // because alerts are generally sent when firing or recovering
+  // we'll need to get that status first to see how our message
+  // should be prefaced
+
+  status := m.Status
+  // remember, we stuck our hookmessage into a variable named 'm'
+
   for _, element := range(m.Alerts) {
   //we need to break the map into key/val pairs, and then
   // check to see if we have summary/description
@@ -68,7 +75,9 @@ func postHandler(w http.ResponseWriter, r *http.Request) {
     description := element.Annotations["description"]
 
     cmd := "./stupid_echo"  //i made a shell script called stupid_echo also in this repo
-    args := []string{summary, ":", description}
+    // you can put ANY shellscript or app in here, and it will get called
+    // with a list of all the arguments
+    args := []string{status, ":", summary, ":", description}
     if err := exec.Command(cmd, args...).Run(); err != nil{
       fmt.Fprintln(os.Stderr,err)
       os.Exit(1)
