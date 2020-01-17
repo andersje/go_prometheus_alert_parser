@@ -5,10 +5,13 @@ run with ./listen_echo
 
 make sure you have stupid_echo as executable.
 follow results echoed out to the 'foobar' file.
+the stupid_echo script exists ONLY to dump the alert out into your preferred format.  I've provided to files for testing, alert1.json -- a set of firing alerts, and alert-fixed.json.   The second file is a another set of alerts, marked as "recovering".   This should allow you to test out your replacement hookscript.
 
 send data with:
 
-curl -XPOST http://localhost:7890/alerts -d@./alerts1.json
+curl -XPOST http://localhost:7890/alerts -d@./alert1.json
+and
+curl -XPOST http://localhost:7890/alerts -d@./alert-fixed.json
 
 in prometheus alertmanager, configure it thusly:
 
